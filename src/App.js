@@ -1,33 +1,46 @@
 import React from "react";
-import FriendCard from "./components/FriendCard";
+import FriendCard from "./components/EmployeeCard/Employees";
 import Wrapper from "./components/Wrapper";
 import friends from "./friends.json";
-import "./App.css";
+import Employees from "./components/EmployeeCard/Employees";
+import EmployeeSearch from "./components/EmployeeCard/EmployeeSearch";
+import uuid from "uuid";
+//import "./App.css";
 
-function App() {
-  return (
-    <Wrapper>
-      <h1 className="title">Friends List</h1>
-      <FriendCard
-        name={friends[0].name}
-        image={friends[0].image}
-        occupation={friends[0].occupation}
-        location={friends[0].location}
-      />
-      <FriendCard
-        name={friends[1].name}
-        image={friends[1].image}
-        occupation={friends[1].occupation}
-        location={friends[1].location}
-      />
-      <FriendCard
-        name={friends[2].name}
-        image={friends[2].image}
-        occupation={friends[2].occupation}
-        location={friends[2].location}
-      />
-    </Wrapper>
-  );
+class App extends React.Component {
+  state = {
+    employees: [
+      {
+        id: uuid.v4(),
+        name: "Bob",
+        title: "QA",
+        phone: "555-555-5555",
+      },
+      {
+        id: uuid.v5(),
+        name: "Jim",
+        title: "Sales",
+        phone: "555-555-5555",
+      },
+      {
+        id: 3,
+        name: "Kevin",
+        title: "Accounting",
+        phone: "555-555-5555",
+      },
+    ],
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <div className="container">
+          <EmployeeSearch />
+          <Employees employees={this.state.employees} />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

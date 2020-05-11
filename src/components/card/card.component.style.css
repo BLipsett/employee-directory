@@ -1,0 +1,18 @@
+.card-container>div:nth-child(even){
+    background:#000;
+    color:#fff;
+    }
+    
+    .card-container>div:nth-child(odd){
+    background:#fff;
+    }
+
+.card-container {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+
+
